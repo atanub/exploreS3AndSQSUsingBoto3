@@ -52,8 +52,12 @@ class AwsUtil:
 
         return None
 
-    def downloadFileFromS3(self, s3Key, outputFolderPath):
-        filePath = self.getFilePathForDownload(s3Key, outputFolderPath)
+    def downloadFileFromS3(self, s3Key, outputFolderPath, fileName):
+        filePath = None
+        if fileName:
+            filePath = self.getFilePathForDownload(fileName, outputFolderPath)
+        else:
+            filePath = self.getFilePathForDownload(s3Key, outputFolderPath)
 
         try:
             s3 = self._getS3Client()
@@ -133,7 +137,7 @@ class AwsUtil:
 
         return None
 
-    def getSqsMessage(self, messageHandler):
+    def getSqsMessage(self, messageHandler, downloadInWatchFolder):
         if self._sqsUrl == None or len(self._sqsUrl) <= 0:
             self.__logError("Failed to get message from SQS, SQS was never initialized!")
             return None
@@ -161,7 +165,7 @@ class AwsUtil:
 
             if s3BucketAndKey != None:
                 self.__logInfo('Calling SQS Message handler for message: %s...' % s3BucketAndKey)
-                if not messageHandler(s3BucketAndKey):
+                if not messageHandler(s3BucketAndKey, downloadInWatchFolder):
                     self.__logError('SQS Message handler failed to process message: %s!' % s3BucketAndKey)
                     return None
                 self.__logInfo('SQS Message handler execution completed for message: %s...' % s3BucketAndKey)
@@ -209,7 +213,7 @@ class AwsUtil:
                 s3 = boto3.resource('s3', region_name=self._region)
             else:
                 s3 = boto3.resource('s3', region_name=self._region, aws_access_key_id=self._config.aws_access_key_id,
-                                   aws_secret_access_key=self._config.aws_secret_key)
+                                    aws_secret_access_key=self._config.aws_secret_key)
 
             return s3
         except Exception as err:
@@ -219,6 +223,7 @@ class AwsUtil:
             print '-' * 72
 
         return None
+
 
 if __name__ == '__main__':
     # for Unit Test ONLY ###############################################
