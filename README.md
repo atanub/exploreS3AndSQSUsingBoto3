@@ -1,7 +1,7 @@
 ## Overview
 
 Application built using python & boto3 to upload files to AWS-S3.
-* Application watches a predefined (configurable) folder in local file system for new files and uploads to S3.
+* Application watches a predefined (configurable) folder in local file system for new files to arrive. Upon detecting new file it uploads to S3.
 * AWS S3 and AWS SQS are used along with Python boto3 to implement this.
 * The application makes use of multi-processing (concurrency) capabilities of python.
 
