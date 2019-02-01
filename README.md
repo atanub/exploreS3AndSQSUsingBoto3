@@ -18,6 +18,7 @@ the Application watches a predefined (configurable) folder in local file system 
 ### Configuration
 
 Application reads configuration from “Application.properties” during start-up. Configure the below mandatory keys to get started. The key names are self-explanatory. 
+
 | # | Key | Example Value                           | Type                  | Remarks                                                                                                                                         |
 |---|-------------------|-----------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | aws_s3_bucket     | test_bucket                             | Mandatory, Must exist | application doesn’t try to create S3 bucket if not already present. In absence given S3 bucket, the application will crash.                     |
