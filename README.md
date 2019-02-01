@@ -21,10 +21,10 @@ Application reads configuration from “Application.properties” during start-u
 | # | Key | Example Value                           | Type                  | Remarks                                                                                                                                         |
 |---|-------------------|-----------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1 | aws_s3_bucket     | test_bucket                             | Mandatory, Must exist | application doesn’t try to create S3 bucket if not already present. In absence given S3 bucket, the application will crash.                     |
-| 2 | aws_s3_folder     | corporate_it/atanu.banik/s3uploaderTest | Mandatory             |                                                                                                                                                 |
+| 2 | aws_s3_folder     | corporate_it/atanu.banik/s3uploaderTest | Mandatory             | N/A                                                                                                                                             |
 | 3 | aws_access_key_id | XXXXXXXX                                | Optional              | Access & Secret Keys are optional. Logged in user’s credential will be used if kept empty.                                                      |
 | 4 | aws_secret_key    | XXXXXXXX                                | Optional              | Access & Secret Keys are optional. Logged in user’s credential will be used if kept empty.                                                      |
-| 5 | aws_region        | us-west-2                               | Mandatory             |                                                                                                                                                 |
+| 5 | aws_region        | us-west-2                               | Mandatory             | N/A                                                                                                                                             |
 | 6 | aws_sqs           | atanu_banik                             | Mandatory             | Application tries to create SQS if not present. But it requires admin privileges for SQS service in absence of this the application will crash. |
 
 ## How to run?
