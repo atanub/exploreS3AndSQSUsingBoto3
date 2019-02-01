@@ -19,7 +19,7 @@ Application built using python & boto3 to upload files to AWS-S3.
 
 ### Configuration
 
-Application reads configuration from [Application.properties](Source\Application.properties) during start-up. Configure the below mandatory keys to get started. The key names are self-explanatory.
+Application reads configuration from [Application.properties](Source/Application.properties) during start-up. Configure the below mandatory keys to get started. The key names are self-explanatory.
 
 | # | Key | Example Value                           | Type                  | Remarks                                                                                                                                         |
 |---|-------------------|-----------------------------------------|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
